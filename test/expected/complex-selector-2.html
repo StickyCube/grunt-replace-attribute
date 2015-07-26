@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cz">
+    <head>
+        <meta charset="utf-8">
+        <title>This is a Test File</title>
+    </head>
+    <body>
+        <div class="header">
+            <ul class="heading-items">
+                <li class="heading-item">Heading 1</li>
+                <li class="heading-item">Heading 2</li>
+                <li class="heading-item">Heading 4</li>
+                <li class="heading-item">Heading 3</li>
+            </ul>
+        </div>
+        <!-- This is a comment -->
+        <div class="container body">
+            <form name="my-form" class="form-inline">
+                <input type="text" name="one" />
+                <input type="number" name="two" />
+                <div contenteditable="true" class="edit"></div>
+                <textarea name="four"></textarea>
+
+                <button type="button" name="button" ng-click="save()"></button>
+            </form>
+        </div>
+
+        <img src="/path/to/a/resource.png" alt="Hello" />
+
+        <angular-directive angular-directive-options="{{ foo.bar.baz }}"></angular-directive>
+
+        <div>
+            <span class="text-center">Author: <small>Some Guy</small></span>
+        </div>
+    </body>
+</html>
