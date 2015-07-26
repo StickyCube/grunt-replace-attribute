@@ -36,7 +36,11 @@
     "grunt": "~0.4.5"
   },
   "keywords": [
-    "gruntplugin"
+    "html",
+    "attribute",
+    "replace",
+    "modify",
+    "change"
   ],
   "dependencies": {
     "trumpet": "~1.7.1",
