@@ -110,13 +110,15 @@ In this example, we replace all the `class` attributes on each `span` element wi
 ```js
 grunt.initConfig({
   replace_attribute: {
-    options: {
-      replace: {
-        span: { class: 'text-center' }
+    target: {
+      options: {
+        replace: {
+          span: { class: 'text-center' }
+        }
+      },
+      files: {
+        'path/to/destination.html': 'path/to/source.html'
       }
-    },
-    files: {
-      'path/to/destination.html': 'path/to/source.html'
     }
   }
 });
@@ -142,14 +144,16 @@ In this example, we append `pull-right` on to the value of all the `class` attri
 ```js
 grunt.initConfig({
   replace_attribute: {
-    options: {
-      upsert: true,
-      replace: {
-        div: { class: '%value% pull-right' }
+    target: {
+      options: {
+        upsert: true,
+          replace: {
+          div: { class: '%value% pull-right' }
+        }
+      },
+      files: {
+        'path/to/destination.html': 'path/to/source.html'
       }
-    },
-    files: {
-      'path/to/destination.html': 'path/to/source.html'
     }
   }
 });
@@ -174,13 +178,15 @@ The two arguments are given to `String.replace` so we can use the `$1, $2, $3 ..
 ```js
 grunt.initConfig({
   replace_attribute: {
-    options: {
-      replace: {
-        li: { class: [/(one|two|three)/g, '$1-banana'] }
+    target: {
+      options: {
+        replace: {
+          li: { class: [/(one|two|three)/g, '$1-banana'] }
+        }
+      },
+      files: {
+        'path/to/destination.html': 'path/to/source.html'
       }
-    },
-    files: {
-      'path/to/destination.html': 'path/to/source.html'
     }
   }
 });
@@ -206,17 +212,19 @@ In this example we reverse the path of the `src` value on all `img` elements usi
 ```js
 grunt.initConfig({
   replace_attribute: {
-    options: {
-      replace: {
-        img: {
-          src: function (original) {
+    target: {
+      options: {
+        replace: {
+          img: {
+            src: function (original) {
               return original.split('/').reverse().join('/');
+            }
           }
         }
+      },
+      files: {
+        'path/to/destination.html': 'path/to/source.html'
       }
-    },
-    files: {
-      'path/to/destination.html': 'path/to/source.html'
     }
   }
 });
@@ -236,14 +244,16 @@ In this example, we use a more complex selector to add a `style="opacicty:0.5;"`
 ```js
 grunt.initConfig({
   replace_attribute: {
-    options: {
-      upsert: { h1: true, span: true },
-      replace: {
-        '*[data-fade=true], li.disabled > span': { style: 'opacicty:0.5;' }
+    target: {
+      options: {
+        upsert: { h1: true, span: true },
+        replace: {
+          '*[data-fade=true], li.disabled > span': { style: 'opacicty:0.5;' }
+        }
+      },
+      files: {
+        'path/to/destination.html': 'path/to/source.html'
       }
-    },
-    files: {
-      'path/to/destination.html': 'path/to/source.html'
     }
   }
 });
