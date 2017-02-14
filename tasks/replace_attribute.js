@@ -16,17 +16,14 @@ module.exports = function (grunt) {
 
     grunt.registerMultiTask('replace_attribute', 'Replace the attribute of any html tag', function () {
         var options = this.options(defaults),
-            complete = this.async(),
-            parser;
+            complete = this.async();
 
         if (!this.files) {
             return grunt.fail.warn('No files were specified');
         }
 
-        parser = new Parser(grunt, options);
-
         async.eachSeries(this.files, function (file, done) {
-            parser.process(file, done);
+            new Parser(grunt, options).process(file, done);
         }, complete);
     });
 };
