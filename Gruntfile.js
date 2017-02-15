@@ -162,6 +162,37 @@ module.exports = function (grunt) {
                 files: {
                     'test/results/complex-selector-3.html': 'test/fixtures/source.html'
                 }
+            },
+            test_multi_file_1: {
+                options: {
+                    upsert: true,
+                    replace: {
+                        div: { class: '%value% foo' },
+                        li: { 'data-id': '123' }
+                    }
+                },
+                files: {
+                    'test/results/multi-file-1.html': 'test/fixtures/source.html',
+                    'test/results/multi-file-2.html': 'test/fixtures/source-2.html'
+                },
+            },
+            test_multi_file_2: {
+                options: {
+                    upsert: true,
+                    replace: {
+                        div: { class: '%value% foo' },
+                        li: { 'data-id': '123' }
+                    }
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'test/fixtures',
+                        src: '*.html',
+                        ext: '.processed.html',
+                        dest: 'test/results'
+                    }
+                ]
             }
         },
 
@@ -195,6 +226,8 @@ module.exports = function (grunt) {
         'replace_attribute:test_complex_selector_1',
         'replace_attribute:test_complex_selector_2',
         'replace_attribute:test_complex_selector_3',
+        'replace_attribute:test_multi_file_1',
+        'replace_attribute:test_multi_file_2',
         'nodeunit'
     ]);
 
